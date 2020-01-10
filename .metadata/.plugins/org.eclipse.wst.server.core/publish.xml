@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<publish-info>
+  <server id="WildFly 10.x at localhost (4)" path="publish5.dat"/>
+  <server id="WildFly 12 at localhost" path="publish3.dat"/>
+  <server id="WildFly 10.x at localhost" path="publish0.dat"/>
+  <server id="WildFly 10.x at localhost (2)" path="publish2.dat"/>
+  <server id="AS10" path="publish1.dat"/>
+  <server id="WildFly 10.x at localhost (3)" path="publish4.dat"/>
+</publish-info>

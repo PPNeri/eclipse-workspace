@@ -1,0 +1,59 @@
+package br.com.neki.sflmmodel.connection;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.ejb.Local;
+import javax.ejb.Singleton;
+
+import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.Morphia;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.mongodb.MongoClient;
+import com.mongodb.MongoCredential;
+import com.mongodb.ServerAddress;
+
+@Singleton
+@Local(MorphiaConnection.class)
+public class MorphiaConnectionBean implements MorphiaConnection{
+	
+	private final Logger logger = LoggerFactory.getLogger(MorphiaConnectionBean.class);
+	
+
+	private static final String DB_HOST = "localhost";//MudeiPedro
+	private static final String USER = "pedro.paulo";
+	private static final String SENHA = "123456";
+	private static final String DB_NAME = "sflm";
+	private static final int PORT = 27017;
+	
+	final Morphia morphia = new Morphia();
+	private MongoClient mongo;
+	private Datastore datastore;
+	
+	private MongoClient mongoDB(){
+		
+		if(null == mongo){
+			
+			MongoCredential mc = MongoCredential.createMongoCRCredential(USER, DB_NAME, SENHA.toCharArray());
+			List<MongoCredential> credentials = new ArrayList<MongoCredential>();
+			credentials.add(mc);
+			
+			ServerAddress sa = new ServerAddress(DB_HOST, PORT);
+
+			mongo = new MongoClient(sa, credentials);
+		}
+		
+		return mongo;
+	}
+	
+	public Datastore getDatastore(){
+		if(null == datastore){
+			morphia.mapPackage("br.com.neki.sflmdomain");
+			datastore = morphia.createDatastore(mongoDB(), DB_NAME);
+		}
+		return datastore;
+	}
+
+}

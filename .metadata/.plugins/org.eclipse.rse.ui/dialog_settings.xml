@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.rse.ui.wizards.newconnection.RSEMainNewConnectionWizard">
+		<item key="lastSelectedSystemTypeId" value="org.eclipse.rse.systemtype.local"/>
+		<section name="org.eclipse.rse.ui.wizards.newconnection.RSENewConnectionWizardSelectionPage">
+			<list key="filteredTree.expandedCatogryIds">
+			</list>
+		</section>
+	</section>
+</section>

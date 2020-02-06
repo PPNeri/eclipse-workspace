@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<h1>Cadastro de Imovel</h1>
+	<h:form>
+		<fieldset>
+			<legend>Dados do Imovel</legend>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Endereco do Imovel : " for="endereco" />
+				<h:inputText id="endereco" value="#{imovelBean.imovel.endereco}" />
+				<h:outputLabel value="Tipo : " for="tipo" />
+				<h:inputText id="tipo" value="#{imovelBean.imovel.tipo}" />
+				<h:outputLabel value="Valor : " for="valor" />
+				<h:inputText id="valor" value="#{imovelBean.imovel.valor}" />
+			</h:panelGrid>
+		</fieldset>
+		<fieldset>
+			<legend>Dados do Corretor</legend>
+			<h:outputLabel value="CRECI : " />
+			<h:selectOneMenu value="#{imovelBean.imovel.corretorId}">
+				<f:selectItems value="#{imovelBean.corretores}" var="corretor"
+					itemLabel="#{corretor.nome}" itemValue="#{corretor.creci}" />
+			</h:selectOneMenu>
+			<h:commandButton value="Gravar Corretor"
+				action="#{imovelBean.gravarCorretor}" />
+
+
+		</fieldset>
+
+
+
+
+
+	</h:form>
+
+
+
+
+
+</h:body>
+
+
+
+</html>

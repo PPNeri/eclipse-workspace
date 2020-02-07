@@ -75,7 +75,6 @@ public class LivroBean implements Serializable {
 
 	public void comecaComDigitoUm(FacesContext fc, UIComponent component,
 			Object value) throws ValidatorException {
-
 		String valor = value.toString();
 		if (!valor.startsWith("1")) {
 			throw new ValidatorException(new FacesMessage(
